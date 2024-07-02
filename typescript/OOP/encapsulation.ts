@@ -24,17 +24,9 @@ class BanckAccount {
     this._balance -= amount;
   }
 
-
   public get getBalanceOfAccount(): number {
-    return this._balance
+    return this._balance;
   }
-
-
 }
 
-
-
-const banckAccount = new BanckAccount(1000);
-banckAccount.deposit(500);
-banckAccount.withdraw(200);
-console.log(`current balance:  ${banckAccount.getBalanceOfAccount}`);
+export { BanckAccount };
