@@ -5,6 +5,7 @@ import {
   calculationArea,
   calculationPerimeter,
 } from "./OOP/abstraction.ts";
+import {Finance, Product} from "./OOP/inheritance.ts"
 
 // encapsulation example
 const banckAccount = new BanckAccount(1000);
@@ -19,3 +20,9 @@ console.log("Area of circle: " + calculationArea(circle));
 console.log("perimeter of circle: " + calculationPerimeter(circle));
 console.log("perimeter of rectangle: " + calculationPerimeter(rectangle));
 console.log("Area of rectangle: " + calculationArea(rectangle));
+
+
+// inheritance
+
+const deposit: Finance = new Finance(1,"deposit Money", "deposit", 1000)
+deposit.operation(200)
