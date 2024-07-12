@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "Design Patterns using TypeScript",
   "devDependencies": {
+    "@types/node": "^20.14.10",
     "parcel": "^2.12.0"
   }
 }
