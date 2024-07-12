@@ -15,22 +15,30 @@ class Logger {
 
   public writeTofile(message: string): void {
     const timestamp = new Date();
-
-    if (`../../logFiles/[${timestamp.getFullYear()}].txt`) {
-      fs.writeFile(
-        `../../logFiles/[${timestamp.getFullYear()}].txt`,
-        message,
-        { encoding: "utf-8", flag: "a+" },
-        (err) => {
-          console.log(err);
+    fs.access(`../../logFiles`, (error) => {
+      if (error?.code === "ENOENT"){
+        fs.mkdir('../../logFiles',(err) => console.log(err)
+        )
+        if (`../../logFiles/[${timestamp.getFullYear()}].txt`) {
+          fs.writeFile(
+            `../../logFiles/[${timestamp.getFullYear()}].txt`,
+            message+"\r\n",
+            { encoding: "utf-8", flag: "a+" },
+            (err) => {
+              console.log(err);
+            }
+          );
         }
-      );
-    }
+      }
+    })
+    
   }
 }
 
 let logger: Logger = Logger.getInstace();
 let logger2: Logger = Logger.getInstace();
+let logger3: Logger = Logger.getInstace()
 
 logger2.writeTofile("do it when you disponted");
 logger.writeTofile("what ever it takes...!");
+logger3.writeTofile("just do it... make it better later")
