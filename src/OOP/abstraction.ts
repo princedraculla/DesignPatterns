@@ -1,3 +1,4 @@
+// Abstraction && polymorphism
 interface Shape {
   area(): number;
   perimeter(): number;

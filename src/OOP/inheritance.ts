@@ -53,4 +53,55 @@ class Finance extends Service {
   }
 }
 
-export { Product, Finance };
+class Item {
+  constructor (public id:number, public price: number, public description: string ) {}
+
+  display():void {
+    console.log(`id: ${this.id}, price: ${this.price}, description: ${this.description}`)
+  }
+
+}
+
+
+class Book extends Item{
+  constructor(
+    public id: number,
+    public price: number,
+    public description: string,
+    public author: string,
+    public title: string,
+  ){
+    super(id,price,description)
+  }
+
+  display(): void {
+    super.display();
+    console.log(`author: ${this.author}, title: ${this.title}`)
+  }
+}
+
+
+class Electronic extends Item {
+  constructor(public id:number,
+    public price: number,
+    public description: string,
+    public brand: string,
+    public model: string,
+  ){
+    super(id,price,description)
+  }
+
+  display(): void {
+    super.display();
+    console.log(`Brand: ${this.brand}, Model: ${this.model}`)
+  }
+}
+
+
+
+
+
+
+export { Product, Finance, Electronic, Book };
+
+

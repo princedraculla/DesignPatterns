@@ -5,7 +5,7 @@ class Logger {
 
   private constructor() {}
 
-  public static getInstace() {
+  public static getInstace(): Logger {
     if (!Logger.instance) {
       Logger.instance = new Logger();
     }
@@ -14,14 +14,15 @@ class Logger {
   // path = C:\GitHub\DesignPatterns\logFiles
 
   public writeTofile(message: string): void {
+    const path: string = `../../logFiles`
     const timestamp = new Date();
-    fs.access(`../../logFiles`, (error) => {
+    fs.access(path, (error) => {
       if (error?.code === "ENOENT"){
-        fs.mkdir('../../logFiles',(err) => console.log(err)
+        fs.mkdir(path,(err) => console.log(err)
         )
-        if (`../../logFiles/[${timestamp.getFullYear()}].txt`) {
+        if (`${path}/[${timestamp.getFullYear()}].txt`) {
           fs.writeFile(
-            `../../logFiles/[${timestamp.getFullYear()}].txt`,
+            `${path}/[${timestamp.getFullYear()}].txt`,
             message+"\r\n",
             { encoding: "utf-8", flag: "a+" },
             (err) => {
@@ -37,7 +38,7 @@ class Logger {
 
 let logger: Logger = Logger.getInstace();
 let logger2: Logger = Logger.getInstace();
-let logger3: Logger = Logger.getInstace()
+let logger3: Logger = Logger.getInstace();
 
 logger2.writeTofile("do it when you disponted");
 logger.writeTofile("what ever it takes...!");

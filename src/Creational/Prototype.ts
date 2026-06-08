@@ -1,3 +1,41 @@
+// generic example 
+
+interface IUserDetails {
+  name: string;
+  age: number;
+  email: string;
+}
+
+interface IPrototype {
+  clone(): IPrototype;
+  getUserDetails(): IUserDetails;
+}
+
+
+class Prototype implements IPrototype {
+  constructor(private user: IUserDetails) {}
+
+  public clone(): IPrototype {
+    const clone = Object.create(this)
+    clone.user = {...this.user}
+    return clone
+  }
+
+  public getUserDetails(): IUserDetails {
+    return this.user;
+  }
+}
+
+let user1 = new Prototype({
+  name: "amir",
+  age: 28,
+  email: "amirtorkashvand@gmail.com"
+})
+
+let user2 = user1.clone()
+console.log(user1 === user2)
+
+// real world example
 interface ShapeProperties {
   color: string;
   x: number;

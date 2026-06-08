@@ -1,11 +1,11 @@
-import { BanckAccount } from "./OOP/encapsulation.ts";
+import { BanckAccount } from "./OOP/encapsulation";
 import {
   Rectangle,
   Circle,
   calculationArea,
   calculationPerimeter,
-} from "./OOP/abstraction.ts";
-import {Finance, Product} from "./OOP/inheritance.ts"
+} from "./OOP/abstraction";
+import {Finance, Product, Book, Electronic} from "./OOP/inheritance"
 
 // encapsulation example
 const banckAccount = new BanckAccount(1000);
@@ -26,3 +26,9 @@ console.log("Area of rectangle: " + calculationArea(rectangle));
 
 const deposit: Finance = new Finance(1,"deposit Money", "deposit", 1000)
 deposit.operation(200)
+
+const dsa: Book = new Book(1,300,"data structure & algorithm", "AMT", "computer engineering")
+dsa.display()
+
+const dellxps: Electronic = new Electronic(2,5000,"my laptop", "Dell", "xps 15 7590")
+dellxps.display();

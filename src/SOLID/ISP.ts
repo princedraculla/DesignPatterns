@@ -5,13 +5,13 @@
 // Regular - 2
 
 interface Post {
-  title: string,
+  title: string
   content: string
 }
 
 interface Comment {
-  title: string,
-  content: string
+  title: string;
+  content: string;
 }
 
 
